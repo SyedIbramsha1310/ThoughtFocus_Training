@@ -19,8 +19,12 @@ public class Tester {
 		
 		months.printAll();
 		
+		System.out.println("---------------------");
+		
 		String resp = months.delete("October");
 		System.out.println(resp);
+		
+		months.Update("December","Last Month of the Year");
 		
 		months.printAll();
 		

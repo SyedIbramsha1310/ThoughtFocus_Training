@@ -30,7 +30,21 @@ public class Language {
 				return "Languages which learned are deleted";
 			}
 		}
+		
 		return language;
+	}
+
+	public String Update(String oldName, String newName) {
+		for (int index = 0; index < languages.length; index++) {
+			if(languages[index] != null) {
+				if (languages[index].equals(oldName)) {
+					languages[index] = newName;
+					return "Data Updated";
+				}
+			}
+		}
+		return newName;
+		
 	}
 
 }

@@ -22,8 +22,12 @@ public class Tester {
 		
 		language.printAll();
 		
+		System.out.println("----------------------");
+		
 		String resp = language.delete("Data Structure & Algorithms");
 		System.out.println(resp);
+		
+		language.Update("Python Language","Easy to Learn");
 		
 		language.printAll();
 		
