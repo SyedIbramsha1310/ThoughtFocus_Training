@@ -1,0 +1,209 @@
+1. Output: NullpointerException.
+	
+2. * Exception is an abnormal condition that is occurs at during normal flow of program and that is during the running of the program
+            * Exception Handling is the mechanism to handle the exception during the program execution to handle the execution so that the normal flow of program execution can be attained. 
+	    * Exception can be handled using the try,catch,throw,throws and finally.
+3. * In Java, we can create our own exceptions that are derived classes of the Exception class. Creating our own Exception is known as custom exception or user-defined exception. Basically, Java custom exceptions are used to customize the exception according to user need.
+	    * Custom exceptions provide you the flexibility to add attributes and methods that are not part of a standard Java exception. These can store additional information, like an application-specific error code, or provide utility methods that can be used to handle or present the exception to a user	
+4. * Encapsulation in Java is a mechanism of wrapping the data (variables) and code acting on the data (methods) together as a single unit.
+    Rules:
+        * Variable are hidden from other classes.
+	* It can be accessed only through the methods of their current class.
+	* Rapping the variable & methods.
+ 	* Variable should be declared in private.
+5. Polymorphism is one of the OOPs feature that allows us to perform a single action in different ways.Also It is the ability of an object to take many forms.
+    They are of two types namely:
+           1. Method OverLoading and 
+	   2. Method OverRidding.
+6. Method overriding is defined as a process when the subclass or a child class has the same method as declared in the parent class.
+    Ex. class Motor{    
+          void run() { 
+           System.out.println("Motor is moving");
+          }  
+        }   
+       class Car2 extends Motor {  
+         void run() { 
+          System.out.println("car is running safely");}  
+  
+        public static void main(String args[]){  
+        Car2 obj = new Car2();
+        obj.run();
+  }  
+}  
+
+7. Method Overriding in java is if a subclass (child class) has the same method as declared in the parent class, it is known as method overriding in Java.
+   Ex. class Human {
+   public void displayInfo() {
+      System.out.println("I am an Human.");
+   }
+}
+
+class Boy extends Human {
+   @Override
+   public void displayInfo() {
+      System.out.println("I am Syed.");
+   }
+}
+
+class Main {
+   public static void main(String[] args) {
+      Boy b1 = new Boy();
+      d1.displayInfo();
+   }
+}
+
+8. Output: args
+
+9. Output: Main method is not found. (CompileTime Error)
+
+10. Output: First class (Institute) should be created in the Interface. parent class(Interface) only Implements theobject.(CompileTime Error) 
+
+11. * Abstraction is the process of reducing the object to its essence so that only the necessary characteristics are exposed to the users.Abstraction defines an object in terms of its properties (attributes), behavior (methods), and interfaces (means of communicating with other objects).
+    * We can achieve abstraction in twom ways namely: 
+       1. Using abstract class and 
+       2. Using abstract interface.
+    * We can achieve abstraction 100% using interfaces.
+
+12. There are two ways to initializ the value into a variable. they are Implicit and Explicit.
+     Implicit: Implicit initialization occurs when variables are assigned a value during processing.
+     Explicit: Variables are explicitly initialized if they are assigned a value in the declaration statement.
+
+
+
+
+
+
+						PRACTICAL:
+
+public class MobileDetails {
+	private String modelname;
+	private int mobileid;
+	private double price;
+	private String memory;
+	private String brandname;
+	private String serialno;
+	private int noofcamera;
+	
+	public String getModelname() {
+		return modelname;
+	}
+	public void setModelname(String modelname) {
+		this.modelname = modelname;
+	}
+	public int getMobileid() {
+		return mobileid;
+	}
+	public void setMobileid(int mobileid) {
+		this.mobileid = mobileid;
+	}
+	public double getPrice() {
+		return price;
+	}
+	public void setPrice(double price) {
+		this.price = price;
+	}
+	public String getMemory() {
+		return memory;
+	}
+	public void setMemory(String memory) {
+		this.memory = memory;
+	}
+	public String getBrandname() {
+		return brandname;
+	}
+	public void setBrandname(String brandname) {
+		this.brandname = brandname;
+	}
+	public String getSerialno() {
+		return serialno;
+	}
+	public void setSerialno(String serialno) {
+		this.serialno = serialno;
+	}
+	public int getNoofcamera() {
+		return noofcamera;
+	}
+	public void setNoofcamera(int noofcamera) {
+		this.noofcamera = noofcamera;
+	}
+	@Override
+	public String toString() {
+		return "MobileDetails [modelname=" + modelname + ", mobileid=" + mobileid + ", price=" + price + ", memory="
+				+ memory + ", brandname=" + brandname + ", serialno=" + serialno + ", noofcamera=" + noofcamera + "]";
+	}
+}
+
+public class MobileDeatilsCRUD {
+
+	private MobileDetails[] details = new MobileDetails[11];
+	private int i = 0;
+
+	public void getAll() {
+		for (int i = 0; i < details.length; i++) {
+			if (details[i] != null) {
+				System.out.println(details[i]);
+			}
+
+		}
+	}
+
+	public String deletebyMobileId(int mobileid) {
+		for (int i = 0; i < details.length; i++) {
+			if (details != null) {
+				if (mobileid == details[i].getMobileid()) {
+					details[i] = null;
+					return "Mobile Details Deleted: " + mobileid;
+				}
+			}
+		}
+		return "Mobile Details Not Deleted";
+	}
+
+
+	public String updateBySerialNo(String oldName, String newName) {
+		for (int i = 0; i < details.length; i++) {
+			if (details != null) {
+				if (details[i].getSerialno().equals(oldName)) {
+					details[i].setSerialno(newName);
+					return "Mobile Details Updated";
+				}
+			}
+
+		}
+		return "Mobile Details Not Updated";
+
+	}
+}
+
+public class DetailsTester {
+	public static void main(String[] args) {
+		MobileDetails details = new MobileDetails();
+		details.setBrandname("Mi");
+		details.setMobileid(10);
+		details.setModelname("Note 11 pro");
+		details.setPrice(20000.00);
+		details.setMemory("128GB");
+		details.setSerialno("S0G5QL");
+		details.setNoofcamera(4);
+		
+		MobileDetails details1 = new MobileDetails();
+		details1.setBrandname("Poco");
+		details1.setMobileid(11);
+		details1.setModelname("X3 pro");
+		details1.setPrice(21000.00);
+		details1.setMemory("64GB");
+		details1.setSerialno("P0G5QL");
+		details1.setNoofcamera(5);
+		
+		
+		MobileDeatilsCRUD crud = new MobileDeatilsCRUD();
+		
+		crud.getAll();
+		crud.deletebyMobileId(10);
+		crud.updateBySerialNo("S0G5QL", "P8UT7W");
+
+		crud.getAll();
+	}
+
+}
+ 
