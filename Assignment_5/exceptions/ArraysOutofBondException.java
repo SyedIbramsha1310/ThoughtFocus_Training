@@ -17,3 +17,4 @@ public class ArraysOutofBondException {
 			System.out.println(e.getMessage());
 		}
 }
+}
